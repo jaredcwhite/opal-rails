@@ -20,7 +20,7 @@ Opal::RSpec::RakeTask.new('opal:spec' => :environment) do |server|
   main_name = builder.runner_logical_path
 
   # Sometimes seems that sprockets will need a moment to pickup the new file
-  sleep 0.1 unless server.sprockets[main_name]
+  sleep 0.1 until server.sprockets[main_name]
 
   server.main = main_name
 end
